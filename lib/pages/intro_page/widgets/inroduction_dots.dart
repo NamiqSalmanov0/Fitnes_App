@@ -10,6 +10,8 @@ class InroductionDots extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      
       children: [
         for (int i = 0; i < IntroModel.myModel.length; i++)
           SizedBox(

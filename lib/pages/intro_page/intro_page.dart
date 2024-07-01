@@ -1,3 +1,4 @@
+import 'package:fitness_app/pages/intro_page/widgets/intro_startedbutton.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/models/intro_model.dart';
@@ -40,18 +41,27 @@ class _IntroPageState extends State<IntroPage> {
               ),
             ),
             const SizedBox(height: 19),
-            InroductionDots(
-              selectedPage: selectedPage,
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: InroductionDots(
+                selectedPage: selectedPage,
+              ),
             ),
-            ElevatedButton(
+            selectedPage==IntroModel.myModel.length-1 ?
+            const IntroStartedbutton()
+           : ElevatedButton(
               onPressed: () {
                 _pageController.jumpToPage(selectedPage + 1);
               },
               style: ElevatedButton.styleFrom(
-                maximumSize: MediaQuery.of(context).size,
+                
+               fixedSize: const Size(120, 68),
                 backgroundColor: Colors.green,
               ),
-              child: const Text('Next'),
+              child: const Text('Next',style: TextStyle(
+                color: Colors.white,
+                fontSize: 20
+              ),),
             )
           ],
         ));
