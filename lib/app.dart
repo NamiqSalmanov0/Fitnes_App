@@ -1,10 +1,13 @@
-import 'package:fitness_app/pages/spalsh_page/splash_page.dart';
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+import 'pages/auth/register_page.dart';
+import 'pages/intro_page/intro_page.dart';
 
-  // This widget is the root of your application.
+class MyApp extends StatelessWidget {
+  const MyApp({super.key, required this.isShowIntro});
+
+  final bool? isShowIntro;
+  @override
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,12 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.black,
         appBarTheme: const AppBarTheme(color: Colors.black),
-       
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const SplashPage(),
+      home: (isShowIntro ?? false) ? const RegisterPage() : const IntroPage(),
     );
   }
 }

@@ -1,4 +1,6 @@
-import 'package:fitness_app/pages/intro_page/widgets/intro_startedbutton.dart';
+import '../auth/register_page.dart';
+import 'widgets/intro_startedbutton.dart';
+import '../../utils/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/models/intro_model.dart';
@@ -50,10 +52,25 @@ class _IntroPageState extends State<IntroPage> {
             ),
             selectedPage == IntroModel.myModel.length - 1
                 ? const IntroStartedbutton()
-                : IntroNextButton(
-                    pageController: _pageController,
-                    selectedPage: selectedPage,
-                  )
+                : Row(
+                    children: [
+                      IntroNextButton(
+                        pageController: _pageController,
+                        selectedPage: selectedPage,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.sizeOf(context).width / 2,
+                        child: TextButton(
+                            onPressed: () {
+                              context.goReplace(const RegisterPage());
+                            },
+                            child: const Text(
+                              'Skip',
+                              style: TextStyle(color: Colors.white),
+                            )),
+                      )
+                    ],
+                  ),
           ],
         ));
   }
