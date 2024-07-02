@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../data/models/intro_model.dart';
 import 'widgets/inroduction_dots.dart';
 import 'widgets/intro_item.dart';
+import 'widgets/intro_next_button.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -47,22 +48,12 @@ class _IntroPageState extends State<IntroPage> {
                 selectedPage: selectedPage,
               ),
             ),
-            selectedPage==IntroModel.myModel.length-1 ?
-            const IntroStartedbutton()
-           : ElevatedButton(
-              onPressed: () {
-                _pageController.jumpToPage(selectedPage + 1);
-              },
-              style: ElevatedButton.styleFrom(
-                
-               fixedSize: const Size(120, 68),
-                backgroundColor: Colors.green,
-              ),
-              child: const Text('Next',style: TextStyle(
-                color: Colors.white,
-                fontSize: 20
-              ),),
-            )
+            selectedPage == IntroModel.myModel.length - 1
+                ? const IntroStartedbutton()
+                : IntroNextButton(
+                    pageController: _pageController,
+                    selectedPage: selectedPage,
+                  )
           ],
         ));
   }
