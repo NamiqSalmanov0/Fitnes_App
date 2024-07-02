@@ -10,8 +10,8 @@ class IntroStartedbutton extends StatelessWidget {
     return ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          fixedSize: Size(160, 50),
+          fixedSize: const Size(160, 50),
         ),
-        child: Text('Get Started'));
+        child: const Text('Get Started'));
   }
 }
