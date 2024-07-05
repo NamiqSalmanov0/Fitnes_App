@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/constants/image_constants.dart';
+
+import '../../../utils/constants/imagaConstants/image_constants.dart';
 
 class DecorWidget extends StatelessWidget {
   const DecorWidget({super.key});

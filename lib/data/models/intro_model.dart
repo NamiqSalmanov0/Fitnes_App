@@ -1,4 +1,5 @@
-import '../../utils/constants/image_constants.dart';
+
+import '../../utils/constants/imagaConstants/image_constants.dart';
 
 class IntroModel {
   final String image;

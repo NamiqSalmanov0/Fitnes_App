@@ -7,11 +7,9 @@ class TextWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Text(
-      TextConstants.t1,
-      style:  TextStyle(
-          color: Colors.white,
-           fontSize: 20,
-            fontWeight: FontWeight.normal),
+      SplashTextConstants.t1,
+      style: TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.normal),
     );
   }
 }
