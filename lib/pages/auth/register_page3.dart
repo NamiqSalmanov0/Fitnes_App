@@ -1,10 +1,12 @@
-import 'package:fitness_app/pages/auth/login_page2.dart';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utils/constants/register_constants/subtitle_and_titlle.dart';
 import '../../utils/constants/register_constants/textfield_constants.dart';
 import '../widgets/mytexttfield.dart';
+import 'login_page2.dart';
 import 'widgets/icons_buttons.dart';
 import 'widgets/sign_button.dart';
 import 'widgets/text_and_subtitle.dart';
@@ -21,8 +23,10 @@ class _RegisterPage3State extends State<RegisterPage3> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmController = TextEditingController();
 
-  Future<void> save() async {
+  void save() async {
+    log('Save button clicked');
     if (_passwordController.text != _confirmController.text) {
+      log('Passwords are not matches');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Password do not match'),
@@ -31,8 +35,9 @@ class _RegisterPage3State extends State<RegisterPage3> {
       return;
     }
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('username', _usernameController.text);
-    prefs.setString('password', _passwordController.text);
+    await prefs.setString('username', _usernameController.text);
+    await prefs.setString('password', _passwordController.text);
+    log('All datas saved');
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Sucsesful Register'),
@@ -100,11 +105,9 @@ class _RegisterPage3State extends State<RegisterPage3> {
                   visible: true,
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               SignButton(
-                onpressed: save,
+                onpressed: () => save(),
                 text: 'Sign up',
               ),
               const SizedBox(
