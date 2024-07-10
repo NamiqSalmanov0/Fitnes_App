@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-import '../../ui/widgets/custom_textfield.dart';
+import 'widgets/custom_textfield.dart';
 import '../../utils/constants/imagaConstants/image_constants.dart';
 import '../../utils/constants/register_constants/text_cnstants.dart';
 import '../../utils/extensions/sized_extension.dart';
@@ -34,17 +34,23 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           children: [
             CustomTextfield(
+              
               hintText: TextConstants.username, 
               prefixSvgIcon: ImageConstants.svguser,
               controller: _usernameControl,),
             12.h,
           CustomTextfield(
+            suffixSvgIcon: ImageConstants.svgeye,
+           isPassword: true,
             hintText: TextConstants.pasword,
             prefixSvgIcon: ImageConstants.svglock,
             controller: _paswwordController,
           ),
             12.h,
-            CustomTextfield(hintText: TextConstants.passwordconfrim,
+            CustomTextfield(
+              isPassword: true,
+              hintText: TextConstants.passwordconfrim,
+              suffixSvgIcon: ImageConstants.svgeye,
              prefixSvgIcon: ImageConstants.svglock,
              controller: _paswordConfirmController,),
             20.h,

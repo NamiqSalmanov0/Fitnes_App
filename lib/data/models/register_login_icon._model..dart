@@ -1,13 +1,13 @@
 import 'package:fitness_app/utils/constants/imagaConstants/image_constants.dart';
 
-class RegisterLoginIconModel {
-  final String continuesvg;
+class SocialIconModel {
+  final String iconSvg;
 
-  RegisterLoginIconModel({required this.continuesvg});
+  SocialIconModel({required this.iconSvg});
 
-  static List<RegisterLoginIconModel> svgmodel = [
-    RegisterLoginIconModel(continuesvg: ImageConstants.googlesvg),
-    RegisterLoginIconModel(continuesvg: ImageConstants.facesvg),
-    RegisterLoginIconModel(continuesvg: ImageConstants.applesvg),
+  static List<SocialIconModel> svgmodel = [
+    SocialIconModel(iconSvg: ImageConstants.googlesvg),
+    SocialIconModel(iconSvg: ImageConstants.facesvg),
+    SocialIconModel(iconSvg: ImageConstants.applesvg),
   ];
 }

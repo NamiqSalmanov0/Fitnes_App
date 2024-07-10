@@ -5,12 +5,15 @@ class TextButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () {}, 
-    child: const Text('Forgot your password?',
-    style: TextStyle(
-      color: Colors.blue,
-      fontSize: 15,
-      fontWeight: FontWeight.normal
-    ),));
+    return Align(
+      alignment: Alignment.centerRight,
+      child: TextButton(onPressed: () {}, 
+      child: const Text('Forgot your password?',
+      style: TextStyle(
+        color: Colors.blue,
+        fontSize: 15,
+        fontWeight: FontWeight.normal
+      ),)),
+    );
   }
 }
